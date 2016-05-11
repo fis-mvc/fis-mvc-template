@@ -1,0 +1,35 @@
+﻿@{
+ViewBag.foo = "城市列表";
+ViewBag.bar = new string[] {"北京","上海","广州","深圳" };
+}
+@{
+    Layout = "_Layout";
+}
+<div>
+    <p>
+        @DateTime.Now.ToString()
+    </p>
+    @ViewBag.foo
+</div>
+<ul>
+  @foreach (var item in ViewBag.bar){
+    <li>@item</li>
+  }
+</ul>
+<button type="button" id="ajax">请求接口/home/query</button>
+<button type="button" id="ajax2">请求接口/home/query2</button>
+<script type="text/javascript" src="/static/libs/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+  $("#ajax").click(function(){
+    $.get('/home/query',function(data){
+      //var data = $.parseJSON(data);
+      alert(data);
+    })
+  })
+  $("#ajax2").click(function(){
+    $.get('/home/query2',function(data){
+      //var data = $.parseJSON(data);
+      alert(data);
+    })
+  })
+</script>
