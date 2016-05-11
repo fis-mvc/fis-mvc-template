@@ -2,7 +2,7 @@
 * @Author: chexingyou <chexingyou>
 * @Date:   2016-05-10 23:52:01
 * @Last modified by:   chexingyou
-* @Last modified time: 2016-05-12 00:11:04
+* @Last modified time: 2016-05-12 00:42:03
 */
 
 
@@ -19,7 +19,8 @@ namespace fis_mvc_template.Controllers
 {
     public class RouteController : Controller
     {
-        private static string mappingFile = "/async/UrlMapping.json";
+        private static string mockRootDir = "/mock";
+        private static string mappingFile = mockRootDir + "/url.map.json";
         private static Dictionary<String, String> mapping = null;
         public ActionResult Index()
         {
@@ -36,7 +37,7 @@ namespace fis_mvc_template.Controllers
                 }
                 if (mapping.ContainsKey(path))
                 {
-                    return Json(readFile(mapping[path]));
+                    return Json(readFile(mockRootDir + mapping[path]));
                 }
                 else
                 {
@@ -45,7 +46,8 @@ namespace fis_mvc_template.Controllers
             }
         }
 
-        public ActionResult Error(){
+        public ActionResult Error()
+        {
             return View();
         }
 
@@ -63,8 +65,8 @@ namespace fis_mvc_template.Controllers
             return dic;
         }
 
-        private string readFile(string file){
-            Console.WriteLine(AppDomain.CurrentDomain.GetData("APP_CONTEXT_BASE_DIRECTORY"));
+        private string readFile(string file)
+        {
             string realPath = AppDomain.CurrentDomain.GetData("APP_CONTEXT_BASE_DIRECTORY") + file;
             return System.IO.File.ReadAllText(realPath, Encoding.UTF8);
         }
