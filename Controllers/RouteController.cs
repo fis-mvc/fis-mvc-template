@@ -19,7 +19,7 @@ namespace fis_mvc_template.Controllers
 {
     public class RouteController : Controller
     {
-        private static string mockRootDir = "/mock";
+        private static string mockRootDir = "/mock/api";
         private static string mappingFile = mockRootDir + "/url.map.json";
         private static Dictionary<String, String> mapping = null;
         public ActionResult Index()

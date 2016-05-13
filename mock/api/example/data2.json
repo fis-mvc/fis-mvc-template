@@ -1,0 +1,7 @@
+{
+  err: 0,
+  data: {
+      content: "world"
+  },
+  msg: "操作成功"
+}

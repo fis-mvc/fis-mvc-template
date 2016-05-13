@@ -21,13 +21,13 @@ ViewBag.bar = new string[] {"北京","上海","广州","深圳" };
 <script type="text/javascript" src="/static/libs/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
   $("#ajax").click(function(){
-    $.get('/home/query',function(data){
+    $.get('/example/query',function(data){
       //var data = $.parseJSON(data);
       alert(data);
     })
   })
   $("#ajax2").click(function(){
-    $.get('/home/query2',function(data){
+    $.get('/example/query2',function(data){
       //var data = $.parseJSON(data);
       alert(data);
     })
